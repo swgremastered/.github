@@ -27,11 +27,11 @@ SWG Remastered is a free, fan-run revival of Star Wars Galaxies (NGE era) built 
 
 ## Dev Setup
 
-See [swgr-ops/docs/RUNBOOK.md](https://github.com/swg-remastered/swgr-ops/blob/main/docs/RUNBOOK.md) for the full provisioning and development guide.
+See [swgr-ops wiki](https://github.com/swg-remastered/swgr-ops/blob/main/wiki/README.md) for the full docs. Start with [RUNBOOK](https://github.com/swg-remastered/swgr-ops/blob/main/wiki/ops/RUNBOOK.md) for provisioning and [ROADMAP](https://github.com/swg-remastered/swgr-ops/blob/main/wiki/strategy/ROADMAP.md) for where we're headed.
 
 **Quick orientation:**
 
 - Server builds via Docker: `docker build -f deploy/container/Dockerfile.cluster -t swg-cluster:local .` from `swgr-server`
 - CI runs on a self-hosted Linux runner (@10.0.0.72). Push to main triggers a build; promote.yml + deploy.yml push to galaxies.
 - Two live galaxies: **Eclipse** (prod, @10.0.0.74) and **Starsider-PTR** (staging, @10.0.0.75)
-- All content changes go through staging first. 26-assertion `verify-galaxy.sh` gate before any prod deploy.
+- All content changes go through staging first. 30-assertion `verify-galaxy.sh` gate before any prod deploy.
